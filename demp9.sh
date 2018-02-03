@@ -31,6 +31,12 @@ apt-get install mariadb-server -y
 systemctl enable mariadb
 systemctl start mariadb
 
-# MariaDB configuration
+# MariaDB 10.1 configuration
 rm -rf /etc/mysql/my.cnf
 wget -O /etc/mysql/my.cnf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/my.cnf
+systemctl restart mariadb
+
+# Default Nginx vHost with PHP support
+rm -rf /etc/nginx/conf.d/default.conf
+wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/default.conf
+systemctl restart nginx
