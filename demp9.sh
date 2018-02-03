@@ -40,3 +40,6 @@ systemctl restart mariadb
 rm -rf /etc/nginx/conf.d/default.conf
 wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/default.conf
 systemctl restart nginx
+
+# phpinfo page
+echo "<?php phpinfo() ?>" > /usr/share/nginx/html/info.php
