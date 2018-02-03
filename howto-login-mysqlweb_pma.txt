@@ -1,0 +1,5 @@
+MySQL 5.7 / MariaDB 10.1 no longer supports login via root in phpMyAdmin/Adminer or other local or remote access software.
+
+A seperate user has to be created with full access to everything in order to manage MySQL databases through a web tool or remote access database software like Heidi and similar.
+
+Read this: https://askubuntu.com/questions/763336/cannot-enter-phpmyadmin-as-root-mysql-5-7
