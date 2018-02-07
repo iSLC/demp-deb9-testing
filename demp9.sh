@@ -21,6 +21,7 @@ systemctl start php7.0-fpm
 
 
 # PHP 7.0 configuration
+mv -f /etc/php/7.0/fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d/www.conf.orig
 rm -rf /etc/php/7.0/fpm/pool.d/www.conf
 wget -O /etc/php/7.0/fpm/pool.d/www.conf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/www.conf
 echo "cgi.fix_pathinfo=0" >> /etc/php/7.0/fpm/php.ini
@@ -32,11 +33,13 @@ systemctl enable mariadb
 systemctl start mariadb
 
 # MariaDB 10.1 configuration
+mv -f /etc/mysql/my.cnf /etc/mysql/my.cnf.orig
 rm -rf /etc/mysql/my.cnf
 wget -O /etc/mysql/my.cnf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/my.cnf
 systemctl restart mariadb
 
 # Default Nginx vHost with PHP support
+mv -f /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.orig
 rm -rf /etc/nginx/conf.d/default.conf
 wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/hidden-refuge/demp-deb9-testing/master/default.conf
 systemctl restart nginx
